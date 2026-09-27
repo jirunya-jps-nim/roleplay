@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLUX. | Enterprise System Incident Management & Roleplay Hub</title>
+  <meta name="description" content="High-contrast brutalist SaaS landing page for enterprise IT system management, live network diagnostics, and team incident roleplay script practice.">
+  
+  <!-- Google Fonts: Anton & Satoshi / Inter / Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;700&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome / Lucide for crisp icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark-charcoal">
+
+  <!-- ================= TOP NOTIFICATION / SYSTEM TICKER ================= -->
+  <div class="system-status-bar" id="systemStatusBar">
+    <div class="status-inner">
+      <span class="status-indicator live-pulse"></span>
+      <span class="status-badge">INCIDENT LIVE #IT-8842</span>
+      <span class="status-text">CRITICAL: Presentation Room A WiFi Congestion Detected &bull; Emergency IT Meeting in Session</span>
+      <div class="status-actions">
+        <span class="timer-countdown" id="topCountdown"><i class="fa-solid fa-clock"></i> Client Call in: <strong>48:15</strong></span>
+        <button class="btn-micro" onclick="openScriptDrawer('alex')"><i class="fa-solid fa-users-viewfinder"></i> Read Script</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FIXED NAVIGATION ================= -->
+  <header class="main-header" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <span class="logo-text">FLUX<span class="logo-dot">.</span></span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#hero" class="nav-link">Overview</a>
+        <a href="#system-dashboard" class="nav-link">System Console</a>
+        <a href="#script-section" class="nav-link highlight-link"><i class="fa-solid fa-masks-theater"></i> Roleplay Script</a>
+        <a href="#problem-solution" class="nav-link">Comparison</a>
+        <a href="#bento-grid" class="nav-link">Features</a>
+        <a href="#how-it-works" class="nav-link">Workflow</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-text-link" onclick="toggleRoleplayTeleprompter()"><i class="fa-solid fa-tv"></i> Teleprompter</button>
+        <button class="btn-pill-primary" onclick="openScriptDrawer('all')">
+          <span>Practice Roles</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero-section grid-bg" id="hero">
+    <div class="hero-container">
+      
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">EMERGENCY IT RESOLUTION PLATFORM & ROLEPLAY SUITE</span>
+      </div>
+
+      <h1 class="hero-headline">
+        RESOLVE NETWORK CRISES <br>
+        BEFORE YOUR CLIENT <span class="highlight-box">NOTICES.</span>
+      </h1>
+
+      <p class="hero-subtext">
+        Mission-critical incident orchestration paired with real-world meeting roleplay scripts. 
+        Empower IT Managers, SysAdmins, and PMs to communicate flawlessly under pressure.
+      </p>
+
+      <!-- Waitlist / Quick Launch Form -->
+      <form class="hero-form" onsubmit="handleHeroSubmit(event)">
+        <div class="form-input-group">
+          <i class="fa-solid fa-terminal input-icon"></i>
+          <input type="text" id="heroRoleSelect" placeholder="Select Role (e.g. Alex, Emily, Ben, Jane, Mike)" list="rolesList" class="hero-input" required value="Alex — IT Manager">
+          <datalist id="rolesList">
+            <option value="Alex — IT Manager (Chairperson)">
+            <option value="Emily — Marketing Employee (Presenter)">
+            <option value="Ben — IT Support (Hardware & LAN)">
+            <option value="Jane — System Administrator (VLAN & Server)">
+            <option value="Mike — Project Manager (Backup Devices)">
+          </datalist>
+        </div>
+        <button type="submit" class="btn-anton-cta">
+          LAUNCH SCRIPT & SIMULATOR <i class="fa-solid fa-bolt"></i>
+        </button>
+      </form>
+
+      <!-- Floating quick metric badges -->
+      <div class="hero-metrics-strip">
+        <div class="metric-item">
+          <span class="metric-value">5 ROLES</span>
+          <span class="metric-label">Full Bilingual Script (EN / TH)</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-item">
+          <span class="metric-value">2 MIN</span>
+          <span class="metric-label">Dedicated vLAN Switch Speed</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-item">
+          <span class="metric-value">100%</span>
+          <span class="metric-label">Presentation Backup Redundancy</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ABSTRACT UI MOCKUP / LIVE SYSTEM CONSOLE ================= -->
+  <section class="mockup-section" id="system-dashboard">
+    <div class="section-header-compact">
+      <span class="section-tag">LIVE SYSTEM TELEMETRY &amp; INCIDENT SIMULATOR</span>
+      <h2 class="section-title-sm">REAL-TIME IT MANAGEMENT DASHBOARD</h2>
+    </div>
+
+    <div class="browser-mockup-frame">
+      <!-- Traffic Light Header -->
+      <div class="mockup-header">
+        <div class="traffic-lights">
+          <span class="light red"></span>
+          <span class="light yellow"></span>
+          <span class="light green"></span>
+        </div>
+        <div class="mockup-address-bar">
+          <i class="fa-solid fa-lock"></i> https://console.flux-corp.internal/incident/it-8842-emily-presentation
+        </div>
+        <div class="mockup-header-actions">
+          <span class="tag-live"><i class="fa-solid fa-circle"></i> CONNECTED</span>
+          <button class="btn-mockup-action" onclick="simulateLANPlug()"><i class="fa-solid fa-plug"></i> Plug LAN</button>
+          <button class="btn-mockup-action" onclick="simulateVLANSwitch()"><i class="fa-solid fa-network-wired"></i> Switch vLAN</button>
+        </div>
+      </div>
+
+      <!-- Mockup Body (3-Column: Sidebar, Main Canvas, Properties Panel) -->
+      <div class="mockup-body-grid">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="mockup-sidebar">
+          <div class="sidebar-brand">
+            <i class="fa-solid fa-shield-halved"></i> FLUX OS 2.4
+          </div>
+          <div class="sidebar-group">
+            <span class="sidebar-label">INCIDENT CHANNELS</span>
+            <div class="sidebar-item active"><i class="fa-solid fa-triangle-exclamation text-yellow"></i> #urgent-emily-laptop</div>
+            <div class="sidebar-item"><i class="fa-solid fa-server"></i> #server-bandwidth</div>
+            <div class="sidebar-item"><i class="fa-solid fa-wifi"></i> #wifi-bug-investigation</div>
+          </div>
+          <div class="sidebar-group">
+            <span class="sidebar-label">MEETING PARTICIPANTS (5)</span>
+            <div class="participant-row"><span class="avatar-dot alex"></span> Alex (Chairperson)</div>
+            <div class="participant-row"><span class="avatar-dot emily"></span> Emily (Presenter)</div>
+            <div class="participant-row"><span class="avatar-dot ben"></span> Ben (IT Support)</div>
+            <div class="participant-row"><span class="avatar-dot jane"></span> Jane (Sys Admin)</div>
+            <div class="participant-row"><span class="avatar-dot mike"></span> Mike (Project Mgr)</div>
+          </div>
+          <div class="sidebar-footer">
+            <div class="system-health-pill">
+              <span>Core Mesh:</span> <strong>STABLE</strong>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Canvas -->
+        <main class="mockup-canvas">
+          <!-- Canvas Top Quick Bar -->
+          <div class="canvas-header-bar">
+            <div>
+              <h3 class="canvas-title">EMERGENCY DIAGNOSTIC CANVAS</h3>
+              <p class="canvas-subtitle">Target Device: <code>EMILY-MACBOOK-PRO-M2</code> &bull; IP: 192.168.4.108</p>
+            </div>
+            <div class="canvas-pills">
+              <span class="pill pill-danger" id="wifiStatusPill"><i class="fa-solid fa-wifi"></i> Wi-Fi: Unstable (Bug)</span>
+              <span class="pill pill-success" id="lanStatusPill"><i class="fa-solid fa-ethernet"></i> LAN: Connected (1 Gbps)</span>
+              <span class="pill pill-gold" id="vlanStatusPill"><i class="fa-solid fa-route"></i> IT vLAN: Priority Active</span>
+            </div>
+          </div>
+
+          <!-- Central Canvas Cards -->
+          <div class="canvas-content-grid">
+            
+            <!-- Real-time Bandwidth & Latency Graph -->
+            <div class="canvas-card">
+              <div class="card-head">
+                <span class="card-label"><i class="fa-solid fa-chart-line"></i> Bandwidth &amp; Packet Loss</span>
+                <span class="card-stat-highlight" id="pingMetric">Ping: 12ms (Normal)</span>
+              </div>
+              <div class="graph-visual">
+                <div class="graph-bar h-20 danger" title="Old WiFi Lag: 820ms"></div>
+                <div class="graph-bar h-40 danger" title="Old WiFi Lag: 640ms"></div>
+                <div class="graph-bar h-90 danger" title="Spike: Memory Freeze"></div>
+                <div class="graph-bar h-15 success" title="LAN Plugged in: 24ms"></div>
+                <div class="graph-bar h-10 success" title="vLAN Priority: 12ms"></div>
+                <div class="graph-bar h-08 success" title="Stable Presentation Line: 9ms"></div>
+                <div class="graph-bar h-08 success" title="Stable Video Call Line: 10ms"></div>
+              </div>
+              <div class="graph-footer-notes">
+                <span class="text-danger"><i class="fa-solid fa-xmark"></i> 08:30 Wi-Fi Loss (68%)</span>
+                <span class="text-success"><i class="fa-solid fa-check"></i> 08:38 Wired LAN + vLAN (0% Loss)</span>
+              </div>
+            </div>
+
+            <!-- Redundancy Device Matrix -->
+            <div class="canvas-card">
+              <div class="card-head">
+                <span class="card-label"><i class="fa-solid fa-laptop-code"></i> Dual-Track Device Redundancy</span>
+                <span class="badge-ready">READY</span>
+              </div>
+              <div class="dual-track-list">
+                <div class="dual-track-item active">
+                  <div class="track-icon"><i class="fa-solid fa-laptop"></i></div>
+                  <div class="track-info">
+                    <strong>Primary: Emily's Laptop</strong>
+                    <span>Direct Cat6 Wired LAN &bull; Dedicated IT vLAN</span>
+                  </div>
+                  <span class="track-status text-success"><i class="fa-solid fa-circle-check"></i> Live</span>
+                </div>
+                <div class="dual-track-item">
+                  <div class="track-icon"><i class="fa-solid fa-hard-drive"></i></div>
+                  <div class="track-info">
+                    <strong>Backup: Mike's Laptop + USB</strong>
+                    <span>Latest presentation slides loaded &amp; synced</span>
+                  </div>
+                  <span class="track-status text-gold"><i class="fa-solid fa-shield"></i> Standby</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Floating Cursor with User Label -->
+          <div class="canvas-floating-cursor">
+            <svg class="cursor-svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M5.65376 12.3673H5.46026L5.31717 12.4976L0.500002 16.8829L0.500002 1.19841L11.7841 12.3673H5.65376Z" fill="#171e19" stroke="#ffe17c" stroke-width="1.5"/>
+            </svg>
+            <div class="cursor-label">
+              <span class="cursor-name">Jane (SysAdmin)</span>
+              <span class="cursor-action">Reconfigured vLAN Priority #402</span>
+            </div>
+          </div>
+
+          <!-- Interactive meeting dialogue snippet on canvas -->
+          <div class="canvas-dialogue-banner">
+            <div class="banner-avatar">A</div>
+            <div class="banner-text">
+              <strong>Alex (Chairperson):</strong> "To summarize, we've agreed that Emily will present using her laptop via LAN, with Mike’s laptop as an instant backup..."
+            </div>
+            <button class="banner-btn" onclick="scrollToScript()"><i class="fa-solid fa-book-open"></i> Full Script</button>
+          </div>
+
+        </main>
+
+        <!-- Properties Panel (Right) -->
+        <aside class="mockup-properties">
+          <div class="properties-header">
+            <span class="prop-title">SYSTEM CONTROLS</span>
+            <i class="fa-solid fa-sliders"></i>
+          </div>
+
+          <!-- Font Display Title -->
+          <div class="prop-section">
+            <label class="prop-label">INCIDENT LEVEL</label>
+            <div class="prop-anton-display">P1 CRITICAL</div>
+          </div>
+
+          <!-- Alignment & QoS Icons -->
+          <div class="prop-section">
+            <label class="prop-label">TRAFFIC ROUTING POLICY</label>
+            <div class="mini-icon-group">
+              <button class="mini-icon-btn active" title="Dedicated VLAN"><i class="fa-solid fa-network-wired"></i></button>
+              <button class="mini-icon-btn" title="Direct P2P LAN"><i class="fa-solid fa-ethernet"></i></button>
+              <button class="mini-icon-btn" title="Backup Mirror"><i class="fa-solid fa-clone"></i></button>
+              <button class="mini-icon-btn" title="Bandwidth Isolation"><i class="fa-solid fa-lock"></i></button>
+            </div>
+          </div>
+
+          <!-- Hex Swatch Highlight -->
+          <div class="prop-section">
+            <label class="prop-label">ACCENT COLOR OVERLAY</label>
+            <div class="color-swatch-box">
+              <span class="swatch-color" style="background-color: #FFE17C;"></span>
+              <span class="swatch-hex">#FFE17C</span>
+              <span class="swatch-tag">FLUX GOLD</span>
+            </div>
+          </div>
+
+          <!-- Action Switches -->
+          <div class="prop-section">
+            <label class="prop-label">DIAGNOSTIC STATUS</label>
+            <div class="diag-toggle-row">
+              <span>Wired LAN Fallback</span>
+              <span class="badge-active">ACTIVE</span>
+            </div>
+            <div class="diag-toggle-row">
+              <span>IT Isolated vLAN</span>
+              <span class="badge-active">ACTIVE</span>
+            </div>
+            <div class="diag-toggle-row">
+              <span>USB Slide Mirror</span>
+              <span class="badge-active">SYNCED</span>
+            </div>
+          </div>
+
+          <div class="prop-section mt-auto">
+            <button class="btn-prop-primary" onclick="openScriptDrawer('all')">
+              <i class="fa-solid fa-play"></i> START ROLEPLAY DRILL
+            </button>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ROLEPLAY SCRIPT INTERACTIVE WORKSPACE ================= -->
+  <section class="script-section" id="script-section">
+    <div class="section-container">
+      
+      <div class="script-section-header">
+        <div>
+          <span class="section-tag-gold">MEETING SCRIPT &amp; ROLEPLAY STUDIO</span>
+          <h2 class="section-headline-anton">EMERGENCY IT MEETING SCRIPT</h2>
+          <p class="section-subtext-satoshi">
+            Full English &amp; Thai transcript from the incident. Select your character to spotlight your dialogue, 
+            listen to pronunciation via AI audio, and rehearse your role.
+          </p>
+        </div>
+        <div class="script-header-controls">
+          <div class="role-selector-pill-group" id="rolePillGroup">
+            <button class="role-pill active" onclick="filterScriptRole('all')">All Roles</button>
+            <button class="role-pill role-alex" onclick="filterScriptRole('alex')">Alex (Chair)</button>
+            <button class="role-pill role-emily" onclick="filterScriptRole('emily')">Emily (Presenter)</button>
+            <button class="role-pill role-ben" onclick="filterScriptRole('ben')">Ben (IT Support)</button>
+            <button class="role-pill role-jane" onclick="filterScriptRole('jane')">Jane (SysAdmin)</button>
+            <button class="role-pill role-mike" onclick="filterScriptRole('mike')">Mike (PM)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Script Toolbar -->
+      <div class="script-toolbar">
+        <div class="toolbar-left">
+          <div class="search-input-wrap">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="scriptSearch" placeholder="Search keywords (e.g. vLAN, backup, cable, froze)..." oninput="searchScript(this.value)">
+          </div>
+          <div class="view-toggles">
+            <label class="toggle-checkbox">
+              <input type="checkbox" id="toggleThai" checked onchange="toggleThaiTranslation()">
+              <span class="toggle-slider"></span>
+              <span class="toggle-text">Show Thai (แปลไทย)</span>
+            </label>
+            <label class="toggle-checkbox">
+              <input type="checkbox" id="toggleNotes" checked onchange="toggleKeyNotes()">
+              <span class="toggle-slider"></span>
+              <span class="toggle-text">Key Idioms &amp; Phrases</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="toolbar-right">
+          <button class="btn-tool" onclick="playFullScript()"><i class="fa-solid fa-circle-play"></i> Auto-Play All Audio</button>
+          <button class="btn-tool" onclick="stopAudio()"><i class="fa-solid fa-circle-stop"></i> Stop</button>
+          <button class="btn-tool highlight" onclick="toggleRoleplayTeleprompter()"><i class="fa-solid fa-expand"></i> Teleprompter Mode</button>
+        </div>
+      </div>
+
+      <!-- Scenario Banner -->
+      <div class="scenario-box">
+        <div class="scenario-badge"><i class="fa-solid fa-bullhorn"></i> SITUATION / สถานการณ์:</div>
+        <p class="scenario-desc">
+          <strong>ก่อนนำเสนองานให้ลูกค้า</strong> คอมพิวเตอร์ของ Emily ค้างและอินเทอร์เน็ตไม่เสถียร ทั้ง 5 คนจึงประชุมเพื่อหาวิธีแก้ไข 
+          (Before an important client presentation, Emily's laptop freezes and WiFi is unstable. All 5 members gather to solve the issue under 1 hour.)
+        </p>
+      </div>
+
+      <!-- Script Content Stream -->
+      <div class="script-stream" id="scriptStream">
+        <!-- Dynamically rendered via app.js with rich cards, audio buttons, thai translations, and key vocabulary tags -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= PROBLEM / SOLUTION HIGH-CONTRAST SPLIT ================= -->
+  <section class="split-contrast-section" id="problem-solution">
+    
+    <!-- Left Half: The Old Way (Charcoal background, sage text, red X) -->
+    <div class="split-half split-problem">
+      <div class="split-inner">
+        <span class="split-tag text-sage">FRAGILE WORKFLOW</span>
+        <h2 class="split-title-anton text-white">THE OLD WAY</h2>
+        <p class="split-desc text-sage">
+          Chaos ensues when technical failures strike right before a high-stakes presentation with no redundancy or defined communication.
+        </p>
+        <ul class="split-list">
+          <li class="split-item problem-item">
+            <span class="split-icon-box danger"><i class="fa-solid fa-xmark"></i></span>
+            <div>
+              <strong class="item-title text-white">Blind Device Reboots</strong>
+              <p class="item-desc text-sage">Wasting 15+ minutes waiting for OS background updates to clear without checking server bandwidth.</p>
+            </div>
+          </li>
+          <li class="split-item problem-item">
+            <span class="split-icon-box danger"><i class="fa-solid fa-xmark"></i></span>
+            <div>
+              <strong class="item-title text-white">Single Point of Failure</strong>
+              <p class="item-desc text-sage">Relying solely on congested office Wi-Fi with zero wired LAN fallback or backup hardware.</p>
+            </div>
+          </li>
+          <li class="split-item problem-item">
+            <span class="split-icon-box danger"><i class="fa-solid fa-xmark"></i></span>
+            <div>
+              <strong class="item-title text-white">Meeting Panic & Misalignment</strong>
+              <p class="item-desc text-sage">Team members talking over each other without clear role assignments (Chair, SysAdmin, IT Support, PM).</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Right Half: The Flux Way (Dark gray, yellow accent border, yellow checkmarks) -->
+    <div class="split-half split-solution">
+      <div class="split-inner">
+        <span class="split-tag text-gold">SYNCHRONIZED RESILIENCE</span>
+        <h2 class="split-title-anton text-white">THE FLUX WAY</h2>
+        <p class="split-desc text-white-80">
+          A dual-track protocol: instant hardware redundancy + isolated IT vLAN switching executed in under 2 minutes.
+        </p>
+        <ul class="split-list">
+          <li class="split-item solution-item">
+            <span class="split-icon-box success"><i class="fa-solid fa-check"></i></span>
+            <div>
+              <strong class="item-title text-white">Dual-Track Execution</strong>
+              <p class="item-desc text-white-80">Fixing hardware while simultaneously syncing backup slides on Mike's secondary laptop.</p>
+            </div>
+          </li>
+          <li class="split-item solution-item">
+            <span class="split-icon-box success"><i class="fa-solid fa-check"></i></span>
+            <div>
+              <strong class="item-title text-white">Dedicated IT vLAN Priority</strong>
+              <p class="item-desc text-white-80">Isolating presentation traffic from general Wi-Fi bugs with high-speed Cat6 wired LAN.</p>
+            </div>
+          </li>
+          <li class="split-item solution-item">
+            <span class="split-icon-box success"><i class="fa-solid fa-check"></i></span>
+            <div>
+              <strong class="item-title text-white">Flawless Executive Communication</strong>
+              <p class="item-desc text-white-80">Structured roleplay scripts ensuring every stakeholder confirms agreement and readiness.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ================= BENTO FEATURE GRID ================= -->
+  <section class="bento-section" id="bento-grid">
+    <div class="section-container">
+      
+      <div class="bento-header">
+        <span class="section-tag">ENGINEERED FOR CRITICAL INCIDENTS</span>
+        <h2 class="bento-title">COMMAND SYSTEM ARSENAL</h2>
+      </div>
+
+      <div class="bento-grid-container">
+        
+        <!-- Feature 1: Span 2 Columns (Incident Telemetry & VLAN Switch) -->
+        <div class="bento-card bento-span-2 bento-dark">
+          <div class="bento-card-body">
+            <span class="bento-badge">TELEMETRY &amp; QoS</span>
+            <h3 class="bento-card-title">RAPID VLAN ISOLATION</h3>
+            <p class="bento-card-desc">
+              When office-wide Wi-Fi bugs trigger network congestion, switch critical presenter traffic to dedicated 1Gbps IT VLANs in just 120 seconds.
+            </p>
+            <div class="bento-mini-ui">
+              <div class="code-snippet">
+                <span class="code-prompt">$</span> flux qos isolate --vlan 402 --target emily-pc --port eth0
+                <span class="code-output text-gold"><i class="fa-solid fa-circle-check"></i> SUCCESS: Traffic prioritized &bull; 0% Packet Loss &bull; 9ms</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 2: 1 Column (Dual-Track Redundancy) -->
+        <div class="bento-card bento-light">
+          <div class="bento-card-body">
+            <span class="bento-badge text-charcoal">REDUNDANCY</span>
+            <h3 class="bento-card-title text-charcoal">DUAL-TRACK BACKUP</h3>
+            <p class="bento-card-desc text-charcoal-70">
+              Never gamble client presentations. Instant USB transfer + synced backup devices ensure zero downtime.
+            </p>
+            <div class="bento-visual-avatars">
+              <div class="avatar-stack">
+                <div class="stack-avatar alex" title="Alex">A</div>
+                <div class="stack-avatar emily" title="Emily">E</div>
+                <div class="stack-avatar ben" title="Ben">B</div>
+                <div class="stack-avatar jane" title="Jane">J</div>
+                <div class="stack-avatar mike" title="Mike">M</div>
+              </div>
+              <span class="stack-label">5/5 Team Synced</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 3: 1 Column (Audio Speech Synthesis & Teleprompter) -->
+        <div class="bento-card bento-light">
+          <div class="bento-card-body">
+            <span class="bento-badge text-charcoal">ROLEPLAY TRAINING</span>
+            <h3 class="bento-card-title text-charcoal">BILINGUAL TTS</h3>
+            <p class="bento-card-desc text-charcoal-70">
+              Native English audio playback for all 5 characters with synchronized Thai translations and phonetic emphasis.
+            </p>
+            <div class="bento-audio-bars">
+              <span class="bar bar-1"></span>
+              <span class="bar bar-2"></span>
+              <span class="bar bar-3"></span>
+              <span class="bar bar-4"></span>
+              <span class="bar bar-5"></span>
+              <span class="audio-status-label">Voice Synthesis Active</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 4: Span 2 Columns (Key Business English Idioms & Analytics) -->
+        <div class="bento-card bento-span-2 bento-dark">
+          <div class="bento-card-body">
+            <span class="bento-badge">BUSINESS ENGLISH HUD</span>
+            <h3 class="bento-card-title">PROFESSIONAL MEETING PHRASES</h3>
+            <p class="bento-card-desc">
+              Master meeting leadership phrases: "Dual-track solution", "Building on what you said", "On the same page", and "I side with you on this one".
+            </p>
+            <div class="phrase-chips-grid">
+              <div class="phrase-chip">"Dual-track solution"</div>
+              <div class="phrase-chip">"Building on what you said"</div>
+              <div class="phrase-chip">"On the same page"</div>
+              <div class="phrase-chip">"As far as I'm concerned"</div>
+              <div class="phrase-chip">"Troubleshooting the problem"</div>
+              <div class="phrase-chip">"Let's win this client"</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= HOW IT WORKS (NUMERICAL STEP-BY-STEP) ================= -->
+  <section class="how-it-works-section" id="how-it-works">
+    <div class="section-container">
+      
+      <div class="how-grid">
+        
+        <!-- Left Column: Sticky Anton Title (7xl) -->
+        <div class="how-left-sticky">
+          <span class="section-tag">INCIDENT RESOLUTION CYCLE</span>
+          <h2 class="how-title-anton">HOW IT WORKS</h2>
+          <p class="how-subtext-satoshi">
+            Three disciplined phases to stabilize hardware, isolate network bandwidth, and deliver a winning client presentation.
+          </p>
+          <div class="how-cta-box">
+            <button class="btn-anton-sm" onclick="scrollToScript()"><i class="fa-solid fa-play"></i> PRACTICE DRILL</button>
+          </div>
+        </div>
+
+        <!-- Right Column: Vertical Stack of 3 Steps with 8xl Ghost Numerals -->
+        <div class="how-right-stack">
+          
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-numeral">01</div>
+            <div class="step-content">
+              <h3 class="step-title-anton">DIAGNOSE &amp; INITIATE DUAL-TRACK</h3>
+              <p class="step-desc-satoshi">
+                Alex opens the urgent standup. Ben checks memory and hardware while Jane inspects server traffic logs to identify the root cause instead of blindly restarting.
+              </p>
+              <div class="step-tag-pill">Page 1-2 Transcript Flow</div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-numeral">02</div>
+            <div class="step-content">
+              <h3 class="step-title-anton">HARDWARE LAN &amp; VLAN MIGRATION</h3>
+              <p class="step-desc-satoshi">
+                Ben plugs in direct Cat6 wired Ethernet to bypass Wi-Fi instability. Simultaneously, Jane switches Emily's connection to the dedicated IT VLAN within two minutes.
+              </p>
+              <div class="step-tag-pill">Page 3-4 Transcript Flow</div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-numeral">03</div>
+            <div class="step-content">
+              <h3 class="step-title-anton">VALIDATE, ALIGN &amp; WIN THE CLIENT</h3>
+              <p class="step-desc-satoshi">
+                Emily validates presentation slide rendering on the new stable line. Mike confirms the standby backup laptop is armed. Alex summarizes the action plan for victory.
+              </p>
+              <div class="step-tag-pill">Page 5-6 Transcript Flow</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIAL HIGH-CONTRAST CARDS ================= -->
+  <section class="testimonials-section">
+    <div class="section-container">
+      
+      <div class="section-header-center">
+        <span class="section-tag">STAKEHOLDER FEEDBACK</span>
+        <h2 class="section-title-anton">TESTED UNDER PRESSURE</h2>
+      </div>
+
+      <div class="testimonial-cards-grid">
+        
+        <!-- Card 1: Light -->
+        <div class="testi-card testi-light">
+          <div class="testi-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testi-quote">
+            "The dual-track approach saved our multimillion-dollar contract. Having Mike's laptop ready while Ben wired the LAN gave me complete peace of mind."
+          </p>
+          <div class="testi-footer">
+            <div class="testi-avatar emily-avatar">E</div>
+            <div>
+              <div class="testi-name">EMILY CHEN</div>
+              <div class="testi-role">Marketing Lead &amp; Presenter</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Center Dark (Elevated, #171e19, -4px offset) -->
+        <div class="testi-card testi-dark-center">
+          <div class="testi-stars gold-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testi-quote text-white">
+            "Structured communication prevents panic. By following this exact incident dialogue, my team moved from crisis to full resolution in under 7 minutes."
+          </p>
+          <div class="testi-footer">
+            <div class="testi-avatar alex-avatar">A</div>
+            <div>
+              <div class="testi-name text-white">ALEXANDER VANE</div>
+              <div class="testi-role text-gold">IT Manager &amp; Chairperson</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Light -->
+        <div class="testi-card testi-light">
+          <div class="testi-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testi-quote">
+            "Isolating Emily's traffic to our IT VLAN took only two minutes. Diagnostic clarity is the difference between a dropped video call and a stellar pitch."
+          </p>
+          <div class="testi-footer">
+            <div class="testi-avatar jane-avatar">J</div>
+            <div>
+              <div class="testi-name">JANE DOE</div>
+              <div class="testi-role">Lead System Administrator</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FINAL HIGH-IMPACT CTA SECTION ================= -->
+  <section class="final-cta-section" id="join">
+    <div class="cta-bg-decorative-text">FLUX. RESOLVE. WIN.</div>
+    <div class="cta-container">
+      
+      <h2 class="cta-headline-anton">
+        BE READY FOR ANY CRISIS. <br>
+        START PRACTICING NOW.
+      </h2>
+
+      <p class="cta-subtext-satoshi">
+        Access the complete bilingual meeting teleprompter, interactive role switcher, and live diagnostic simulator for your organization.
+      </p>
+
+      <div class="cta-form-wrapper">
+        <form class="cta-form" onsubmit="handleCtaJoin(event)">
+          <input type="email" placeholder="Enter corporate email (e.g. alex@company.com)" class="cta-input" required>
+          <button type="submit" class="btn-cta-dark">
+            GET INSTANT ACCESS <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-brand-col">
+        <span class="footer-logo">FLUX<span class="text-gold">.</span></span>
+        <p class="footer-desc">High-contrast incident response &amp; roleplay script management architecture.</p>
+      </div>
+      <div class="footer-links-col">
+        <span class="footer-heading">CHARACTERS</span>
+        <a href="javascript:void(0)" onclick="filterScriptRole('alex')">Alex — IT Manager</a>
+        <a href="javascript:void(0)" onclick="filterScriptRole('emily')">Emily — Marketing</a>
+        <a href="javascript:void(0)" onclick="filterScriptRole('ben')">Ben — IT Support</a>
+        <a href="javascript:void(0)" onclick="filterScriptRole('jane')">Jane — SysAdmin</a>
+        <a href="javascript:void(0)" onclick="filterScriptRole('mike')">Mike — Project Manager</a>
+      </div>
+      <div class="footer-links-col">
+        <span class="footer-heading">SYSTEM</span>
+        <a href="#system-dashboard">Diagnostic Console</a>
+        <a href="javascript:void(0)" onclick="simulateLANPlug()">Wired LAN Protocol</a>
+        <a href="javascript:void(0)" onclick="simulateVLANSwitch()">vLAN #402 Switch</a>
+        <a href="javascript:void(0)" onclick="toggleRoleplayTeleprompter()">Teleprompter HUD</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 FLUX Systems Corp. High-Contrast Editorial Architecture. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <!-- ================= FLOATING TELEPROMPTER OVERLAY MODAL ================= -->
+  <div class="teleprompter-modal" id="teleprompterModal">
+    <div class="teleprompter-header">
+      <div class="tele-title">
+        <span class="live-dot"></span>
+        <strong>ROLEPLAY TELEPROMPTER HUD</strong>
+        <span class="tele-role-badge" id="teleRoleBadge">All Characters</span>
+      </div>
+      <div class="tele-controls">
+        <button class="tele-btn" onclick="toggleTeleprompterScroll()" id="telePlayBtn"><i class="fa-solid fa-play"></i> Auto-Scroll</button>
+        <div class="tele-speed-group">
+          <span>Speed:</span>
+          <button class="tele-speed-btn active" onclick="setTeleSpeed(1, this)">1x</button>
+          <button class="tele-speed-btn" onclick="setTeleSpeed(1.5, this)">1.5x</button>
+          <button class="tele-speed-btn" onclick="setTeleSpeed(2, this)">2x</button>
+        </div>
+        <button class="tele-btn-close" onclick="toggleRoleplayTeleprompter()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    </div>
+    <div class="teleprompter-content" id="teleprompterContent">
+      <!-- Mirror of all dialogues with massive readable typography -->
+    </div>
+  </div>
+
+  <script src="script_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
